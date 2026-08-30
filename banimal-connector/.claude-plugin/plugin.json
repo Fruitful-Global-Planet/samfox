@@ -1,0 +1,11 @@
+{
+  "name": "banimal-connector",
+  "version": "0.1.0",
+  "description": "The core Banimal Connector — installs the single canonical Sam Fox™ CI Guide (fox-head icon, verified palette, typography, compliance rules) into any Claude Code profile so brand output never drifts. First reference implementation of the Banimal Connector protocol: every other platform adapter (WordPress, Replit, GitHub Actions, etc.) is built by porting the same source-of-truth content in skills/samfox-ci-guide/SKILL.md.",
+  "author": {
+    "name": "Fruitful Shops (Pty) Ltd"
+  },
+  "skills": [
+    "./skills/samfox-ci-guide"
+  ]
+}

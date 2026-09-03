@@ -1,7 +1,7 @@
 {
   "name": "banimal-connector",
   "version": "0.1.0",
-  "description": "The core Banimal Connector — installs the single canonical Sam Fox™ CI Guide (fox-head icon, verified palette, typography, compliance rules) into any Claude Code profile so brand output never drifts. First reference implementation of the Banimal Connector protocol: every other platform adapter (WordPress, Replit, GitHub Actions, etc.) is built by porting the same source-of-truth content in skills/samfox-ci-guide/SKILL.md.",
+  "description": "The core Banimal Connector — installs the single canonical Sam Fox™ CI Guide (fox-head icon, verified palette, typography, compliance rules) into any Claude Code profile so brand output never drifts. Reference source for the real, shipped Banimal Ecosystem Connector WordPress plugin (heyns1000/banimal, wordpress-plugin/banimal-ecosystem-connector, v5.1.1) and for any future Replit/GitHub adapter — all of them port the same source-of-truth content in skills/samfox-ci-guide/SKILL.md rather than a new plugin per platform.",
   "author": {
     "name": "Fruitful Shops (Pty) Ltd"
   },

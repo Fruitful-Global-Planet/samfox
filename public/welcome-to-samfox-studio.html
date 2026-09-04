@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>🦊SamFox Studio - Foxed Has Mobiles™ Master Competition Suite</title>
+    <meta name="description" content="Creative design competition platform featuring Foxed Has Mobiles™ 1/1 apparel oracle and specialized categories with symbol validation, multi-medium support, and Banimal branding">
+    
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare. com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+            color: #1f2937;
+        }
+
+        /* Custom Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDelay {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            50% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity:  0.5;
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(249, 115, 22, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(249, 115, 22, 0.8);
+            }
+        }
+
+        . animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .animate-fade-in-delay {
+            animation: fadeInDelay 1.2s ease-out forwards;
+        }
+
+        .animate-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        . hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .hover-glow {
+            transition: all 0.3s ease;
+        }
+
+        .hover-glow:hover {
+            animation: glow 1. 5s ease-in-out infinite;
+        }
+
+        .sticky-nav {
+            background:  linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #f97316, #ef4444, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow:  0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: #f97316;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight:  600;
+        }
+
+        .progress-bar {
+            background:  linear-gradient(90deg, #f97316, #ef4444);
+            height: 8px;
+            border-radius:  9999px;
+            transition: width 0.5s ease;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .competition-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .competition-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+        }
+
+        .mobile-menu. active {
+            display: block;
+        }
+
+        /* Responsive Grid */
+        . grid-responsive {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 50%, #0f172a 100%);
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right:  0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(249, 115, 22, 0.1) 0%, transparent 50%);
+        }
+
+        /* Footer */
+        .footer {
+            background: #111827;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer a {
+            color: #9ca3af;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color:  white;
+        }
+
+        /* Stats Cards */
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transform: translateY(-3px);
+        }
+
+        /* Pricing Cards */
+        .pricing-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .pricing-card:hover {
+            border-color: #f97316;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .pricing-card. featured {
+            border-color: #f97316;
+            box-shadow: 0 10px 40px rgba(249, 115, 22, 0.3);
+        }
+
+        /* Button Styles */
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            transition:  all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #f97316, #ef4444);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow:  0 10px 30px rgba(249, 115, 22, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #1f2937;
+            border: 2px solid #e5e7eb;
+        }
+
+        .btn-secondary:hover {
+            background: #f9fafb;
+            border-color: #f97316;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap:  1rem;
+            border-bottom: 2px solid #e5e7eb;
+            margin-bottom: 2rem;
+        }
+
+        .tab {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            transition: all 0.3s ease;
+        }
+
+        .tab:hover {
+            color: #f97316;
+        }
+
+        .tab.active {
+            color: #f97316;
+            border-bottom-color: #f97316;
+            font-weight: 600;
+        }
+
+        . tab-content {
+            display:  none;
+        }
+
+        . tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sticky Header / Navigation -->
+    <header class="sticky top-0 z-50 sticky-nav border-b border-gray-800">
+        <nav class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <span class="text-white text-2xl font-bold">Fruitful™</span>
+                    <span class="text-gray-400 text-xl">|</span>
+                    <span class="text-white text-2xl font-bold">Banimal</span>
+                </div>
+                <div class="hidden lg:flex items-center space-x-4">
+                    <a href="#dashboard" class="text-gray-300 hover:text-white transition-colors text-sm">📊 Dashboard</a>
+                    <a href="#submissions" class="text-gray-300 hover:text-white transition-colors text-sm">📝 Submit</a>
+                    <a href="#gallery" class="text-gray-300 hover:text-white transition-colors text-sm">🎨 Gallery</a>
+                    <a href="#collaboration" class="text-gray-300 hover:text-white transition-colors text-sm">🤝 Collab</a>
+                    <a href="#ai-feedback" class="text-gray-300 hover:text-white transition-colors text-sm">🤖 AI Feedback</a>
+                    <a href="#analytics" class="text-gray-300 hover:text-white transition-colors text-sm">📈 Analytics</a>
+                    <a href="#achievements" class="text-gray-300 hover:text-white transition-colors text-sm">🏆 Achievements</a>
+                    <a href="#noodle-mountain" class="text-gray-300 hover:text-white transition-colors text-sm font-bold">🍜 Noodle Mountain</a>
+                    <a href="#forum" class="text-gray-300 hover:text-white transition-colors text-sm">💬 Forum</a>
+                    <a href="#faq" class="text-gray-300 hover:text-white transition-colors text-sm">❓ FAQ</a>
+                    <a href="#get-started" class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-3 py-2 rounded-full hover-glow transition-all text-sm font-semibold">🚀 Start</a>
+                </div>
+                <button class="lg:hidden text-white" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="mobile-menu lg:hidden mt-4 pb-4 animate-fade-in">
+                <div class="flex flex-col space-y-3">
+                    <a href="#competition" class="text-gray-300 hover:text-white transition-colors text-left">Competition</a>
+                    <a href="#dashboard" class="text-gray-300 hover:text-white transition-colors text-left">📊 Dashboard</a>
+                    <a href="#submissions" class="text-gray-300 hover:text-white transition-colors text-left">📝 Submissions</a>
+                    <a href="#gallery" class="text-gray-300 hover:text-white transition-colors text-left">🎨 Gallery</a>
+                    <a href="#collaboration" class="text-gray-300 hover:text-white transition-colors text-left">🤝 Collaboration</a>
+                    <a href="#ai-feedback" class="text-gray-300 hover: text-white transition-colors text-left">🤖 AI Feedback</a>
+                    <a href="#analytics" class="text-gray-300 hover:text-white transition-colors text-left">📈 Analytics</a>
+                    <a href="#achievements" class="text-gray-300 hover:text-white transition-colors text-left">🏆 Achievements</a>
+                    <a href="#noodle-mountain" class="text-gray-300 hover:text-white transition-colors text-left font-bold">🍜 Noodle Mountain</a>
+                    <a href="#forum" class="text-gray-300 hover:text-white transition-colors text-left">💬 Forum</a>
+                    <a href="#faq" class="text-gray-300 hover:text-white transition-colors text-left">❓ FAQ</a>
+                    <a href="#get-started" class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-full text-center mt-3">🚀 Get Started</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in">
+                Welcome to <span class="gradient-text">SamFox Studio</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 animate-fade-in">
+                Master Competition Suite - Where Creativity Meets Innovation
+            </p>
+            <p class="text-lg text-gray-400 mb-12 max-w-3xl mx-auto animate-fade-in-delay">
+                Join the ultimate creative design competition platform featuring Foxed Has Mobiles™ 1/1 Apparel Oracle, 
+                Mr Fruitful™'s Olympic Threads, and 4 other specialized categories.  Multi-medium support, 
+                symbol validation, and Banimal™ branding. 
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-4 animate-fade-in-delay">
+                <a href="#get-started" class="bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold py-3 px-6 rounded-full hover-lift transition-all">
+                    🚀 Get Started
+                </a>
+                <a href="#dashboard" class="bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold py-3 px-6 rounded-full hover-lift transition-all">
+                    📊 Dashboard
+                </a>
+                <a href="#achievements" class="bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-semibold py-3 px-6 rounded-full hover-lift transition-all">
+                    🏆 Compete
+                </a>
+                <a href="#submissions" class="bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold py-3 px-6 rounded-full hover-lift transition-all">
+                    📝 Submit
+                </a>
+                <a href="#gallery" class="bg-gradient-to-r from-pink-500 to-red-500 text-white font-semibold py-3 px-6 rounded-full hover-lift transition-all">
+                    🎨 Gallery
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competition Overview Section -->
+    <section id="competition" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="section-title gradient-text">Competition Categories</h2>
+            
+            <div class="grid-responsive">
+                <!-- Competition 1: Foxed Has Mobiles -->
+                <div class="competition-card card-hover">
+                    <div class="text-5xl mb-4">🦊</div>
+                    <h3 class="text-2xl font-bold mb-2">Foxed Has Mobiles™</h3>
+                    <p class="text-sm text-gray-500 mb-4">1/1 Apparel Oracle</p>
+                    <p class="text-gray-600 mb-4">
+                        Create unique, one-of-one apparel designs that push creative boundaries and redefine streetwear fashion.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="badge bg-orange-100 text-orange-800">Advanced</span>
+                        <span class="badge bg-blue-100 text-blue-800">R5,000 Prize</span>
+                        <span class="badge bg-green-100 text-green-800">156 Participants</span>
+                    </div>
+                    <div class="mb-4">
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="text-gray-600">Submissions</span>
+                            <span class="font-semibold">156/300</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="progress-bar" style="width: 52%"></div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary w-full">Join Competition</button>
+                </div>
+
+                <!-- Competition 2: Mr Fruitful's Olympic Threads -->
+                <div class="competition-card card-hover">
+                    <div class="text-5xl mb-4">🍉</div>
+                    <h3 class="text-2xl font-bold mb-2">Mr Fruitful™'s Olympic Threads</h3>
+                    <p class="text-sm text-gray-500 mb-4">Athletic Apparel Design</p>
+                    <p class="text-gray-600 mb-4">
+                        Design cutting-edge athletic wear that combines performance with style for the modern athlete.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="badge bg-purple-100 text-purple-800">Intermediate</span>
+                        <span class="badge bg-blue-100 text-blue-800">R3,500 Prize</span>
+                        <span class="badge bg-green-100 text-green-800">142 Participants</span>
+                    </div>
+                    <div class="mb-4">
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="text-gray-600">Submissions</span>
+                            <span class="font-semibold">142/250</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="progress-bar" style="width: 57%"></div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary w-full">Join Competition</button>
+                </div>
+
+                <!-- Competition 3: Brand Creation -->
+                <div class="competition-card card-hover">
+                    <div class="text-5xl mb-4">🎨</div>
+                    <h3 class="text-2xl font-bold mb-2">Brand Creation Lab</h3>
+                    <p class="text-sm text-gray-500 mb-4">Full Brand Identity</p>
+                    <p class="text-gray-600 mb-4">
+                        Develop comprehensive brand identities from logo to messaging for fictional or real-world brands.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="badge bg-indigo-100 text-indigo-800">Advanced</span>
+                        <span class="badge bg-blue-100 text-blue-800">R4,000 Prize</span>
+                        <span class="badge bg-green-100 text-green-800">98 Participants</span>
+                    </div>
+                    <div class="mb-4">
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="text-gray-600">Submissions</span>
+                            <span class="font-semibold">98/200</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="progress-bar" style="width: 49%"></div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary w-full">Join Competition</button>
+                </div>
+
+                <!-- Competition 4: Chaos Cartography -->
+                <div class="competition-card card-hover">
+                    <div class="text-5xl mb-4">🗺️</div>
+                    <h3 class="text-2xl font-bold mb-2">Chaos Cartography</h3>
+                    <p class="text-sm text-gray-500 mb-4">Abstract Map Design</p>
+                    <p class="text-gray-600 mb-4">
+                        Create imaginative, abstract maps that blend art with functionality in unexpected ways.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="badge bg-teal-100 text-teal-800">Intermediate</span>
+                        <span class="badge bg-blue-100 text-blue-800">R3,000 Prize</span>
+                        <span class="badge bg-green-100 text-green-800">87 Participants</span>
+                    </div>
+                    <div class="mb-4">
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="text-gray-600">Submissions</span>
+                            <span class="font-semibold">87/180</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="progress-bar" style="width: 48%"></div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary w-full">Join Competition</button>
+                </div>
+
+                <!-- Competition 5: Digital Art Arena -->
+                <div class="competition-card card-hover">
+                    <div class="text-5xl mb-4">🎭</div>
+                    <h3 class="text-2xl font-bold mb-2">Digital Art Arena</h3>
+                    <p class="text-sm text-gray-500 mb-4">Multi-Medium Digital Art</p>
+                    <p class="text-gray-600 mb-4">
+                        Showcase your digital artistry across any medium:  illustration, 3D, animation, or mixed media.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="badge bg-pink-100 text-pink-800">All Levels</span>
+                        <span class="badge bg-blue-100 text-blue-800">R4,500 Prize</span>
+                        <span class="badge bg-green-100 text-green-800">201 Participants</span>
+                    </div>
+                    <div class="mb-4">
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="text-gray-600">Submissions</span>
+                            <span class="font-semibold">201/350</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="progress-bar" style="width: 57%"></div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary w-full">Join Competition</button>
+                </div>
+
+                <!-- Competition 6: Typography Thunder -->
+                <div class="competition-card card-hover">
+                    <div class="text-5xl mb-4">✍️</div>
+                    <h3 class="text-2xl font-bold mb-2">Typography Thunder</h3>
+                    <p class="text-sm text-gray-500 mb-4">Creative Typography</p>
+                    <p class="text-gray-600 mb-4">
+                        Design innovative typographic compositions that tell stories and evoke emotions through letterforms.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="badge bg-yellow-100 text-yellow-800">Beginner-Friendly</span>
+                        <span class="badge bg-blue-100 text-blue-800">R2,500 Prize</span>
+                        <span class="badge bg-green-100 text-green-800">164 Participants</span>
+                    </div>
+                    <div class="mb-4">
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="text-gray-600">Submissions</span>
+                            <span class="font-semibold">164/280</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="progress-bar" style="width: 59%"></div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary w-full">Join Competition</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Stats Section -->
+    <section id="dashboard" class="py-20 bg-gradient-to-br from-orange-50 to-red-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="section-title gradient-text">Competition Dashboard</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="stat-card">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="text-3xl">📊</div>
+                        <div class="text-green-500 text-sm font-semibold">↑ 15. 2%</div>
+                    </div>
+                    <div class="text-3xl font-bold mb-2">847</div>
+                    <div class="text-gray-600 text-sm">Total Submissions</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="text-3xl">👥</div>
+                        <div class="text-green-500 text-sm font-semibold">↑ 8.7%</div>
+                    </div>
+                    <div class="text-3xl font-bold mb-2">1,456</div>
+                    <div class="text-gray-600 text-sm">Active Participants</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="text-3xl">🏆</div>
+                        <div class="text-blue-500 text-sm font-semibold">83. 2%</div>
+                    </div>
+                    <div class="text-3xl font-bold mb-2">4. 7★</div>
+                    <div class="text-gray-600 text-sm">Average Rating</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="text-3xl">👁️</div>
+                        <div class="text-green-500 text-sm font-semibold">↑ 22.4%</div>
+                    </div>
+                    <div class="text-3xl font-bold mb-2">23,847</div>
+                    <div class="text-gray-600 text-sm">Total Views</div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-2xl font-bold mb-6">Recent Activity</h3>
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
+                        <div class="text-2xl">🦊</div>
+                        <div class="flex-1">
+                            <div class="font-semibold">New submission in Foxed Has Mobiles™</div>
+                            <div class="text-sm text-gray-600">Alex Chen submitted "Neon Fox Streetwear Collection"</div>
+                        </div>
+                        <div class="text-sm text-gray-500">2 mins ago</div>
+                    </div>
+
+                    <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
+                        <div class="text-2xl">🍉</div>
+                        <div class="flex-1">
+                            <div class="font-semibold">New submission in Olympic Threads</div>
+                            <div class="text-sm text-gray-600">Maria Rodriguez submitted "Dynamic Sprint Collection"</div>
+                        </div>
+                        <div class="text-sm text-gray-500">15 mins ago</div>
+                    </div>
+
+                    <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
+                        <div class="text-2xl">🎨</div>
+                        <div class="flex-1">
+                            <div class="font-semibold">Achievement unlocked! </div>
+                            <div class="text-sm text-gray-600">Jamie Lee earned "First Submission" badge</div>
+                        </div>
+                        <div class="text-sm text-gray-500">1 hour ago</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing / Products Section -->
+    <section id="products" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="section-title gradient-text">FAA. ZONE™ Pricing Packages</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+                Choose the perfect package to access our competition submission tools, resources, and exclusive benefits.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Starter Package -->
+                <div class="pricing-card">
+                    <div class="text-4xl mb-4">🌱</div>
+                    <h3 class="text-2xl font-bold mb-2">Starter</h3>
+                    <div class="text-4xl font-bold mb-4">R149<span class="text-lg text-gray-500">/mo</span></div>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>Submit to 2 competitions</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>Basic analytics dashboard</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>Community forum access</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>Email support</span>
+                        </li>
+                    </ul>
+                    <button class="btn btn-secondary w-full">Get Started</button>
+                </div>
+
+                <!-- Professional Package (Featured) -->
+                <div class="pricing-card featured">
+                    <div class="absolute top-4 right-4 bg-orange-500 text-white text-xs px-3 py-1 rounded-full font-semibold">
+                        POPULAR
+                    </div>
+                    <div class="text-4xl mb-4">🚀</div>
+                    <h3 class="text-2xl font-bold mb-2">Professional</h3>
+                    <div class="text-4xl font-bold mb-4">R349<span class="text-lg text-gray-500">/mo</span></div>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>Submit to ALL competitions</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>Advanced analytics & insights</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>AI-powered feedback</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>Priority support</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>Collaboration tools</span>
+                        </li>
+                    </ul>
+                    <button class="btn btn-primary w-full">Get Started</button>
+                </div>
+
+                <!-- Enterprise Package -->
+                <div class="pricing-card">
+                    <div class="text-4xl mb-4">⭐</div>
+                    <h3 class="text-2xl font-bold mb-2">Enterprise</h3>
+                    <div class="text-4xl font-bold mb-4">R799<span class="text-lg text-gray-500">/mo</span></div>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>Everything in Professional</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>Unlimited team members</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>Custom branding options</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>Dedicated account manager</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>API access</span>
+                        </li>
+                    </ul>
+                    <button class="btn btn-secondary w-full">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Noodle Mountain Saga -->
+    <section id="noodle-mountain" class="py-20 bg-gradient-to-br from-amber-50 to-orange-50">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="section-title" style="background:  linear-gradient(135deg, #f59e0b, #ea580c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                🍜 The Noodle Mountain Saga
+            </h2>
+
+            <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                <h3 class="text-2xl font-bold mb-4 text-amber-800">The Legend Begins</h3>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    In the beginning, there was the <strong>Noodle Mountain</strong> — a majestic peak of twisted, 
+                    tangled pasta, rising from the depths of imagination. This was no ordinary mountain; it was a 
+                    symbol of complexity, creativity, and the beautiful chaos of design.
+                </p>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    Upon this mountain, a humble <strong>white canvas</strong> stretched across the landscape, 
+                    pristine and pure, waiting for the touch of creative genius. But the canvas was not alone. 
+                </p>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                <h3 class="text-2xl font-bold mb-4 text-amber-800">The Birth of Fruitful™</h3>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    Rising from the summit emerged <strong>Fruitful™</strong> — the corporate header, gleaming with 
+                    professional polish and strategic vision. Like a banner planted on a conquered peak, Fruitful™ 
+                    declared its presence with confidence and clarity.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    This header wasn't just decoration; it was a beacon, a guide, a promise of structure amid the 
+                    creative chaos of the Noodle Mountain below. 
+                </p>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                <h3 class="text-2xl font-bold mb-4 text-amber-800">Enter Banimal™</h3>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    Beneath this fantastical realm, a new, solid foundation emerged:  the <strong>Banimal™</strong> 
+                    footer. Like a corporate header, yet grounded in the earth, this "winter brown grass" expanse 
+                    provides a clear, visible deployment area. 
+                </p>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    It's here, on this stable ground, that the sheep can truly play, finding their space (about 25% 
+                    of the white canvas, with a proud 2mm border from the edges).
+                </p>
+                <div class="bg-amber-50 rounded-lg p-6 border-2 border-amber-200">
+                    <h4 class="text-xl font-semibold mb-3 text-amber-800">Banimal™:  Kind Creatures.  Global Impact.</h4>
+                    <p class="text-gray-700 leading-relaxed">
+                        The Banimal™ philosophy is simple yet profound: create space for kind creatures to thrive, 
+                        while making a global impact through thoughtful design and compassionate innovation.
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h3 class="text-2xl font-bold mb-4 text-amber-800">The Canvas Complete</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    And so, the composition was complete:  Noodle Mountain reaching for the skies, Fruitful™ crowning 
+                    the peak, a white canvas of infinite possibility stretched between, and Banimal™ providing the 
+                    solid ground beneath. A canvas born from simplicity, elevated by imagination, and sustained by 
+                    kind creatures and global impact! 
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rules Section -->
+    <section id="rules" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="section-title gradient-text">Competition Rules & Guidelines</h2>
+
+            <div class="space-y-6">
+                <div class="bg-gradient-to-r from-orange-50 to-red-50 rounded-lg p-6 border-l-4 border-orange-500">
+                    <h3 class="text-xl font-bold mb-3 flex items-center gap-2">
+                        <span>📋</span> Submission Requirements
+                    </h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li>• All work must be original and created specifically for this competition</li>
+                        <li>• Multiple file formats accepted:  PNG, JPG, PDF, AI, PSD, SVG</li>
+                        <li>• Maximum file size: 50MB per submission</li>
+                        <li>• Include a brief description (100-500 words) of your concept</li>
+                    </ul>
+                </div>
+
+                <div class="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg p-6 border-l-4 border-blue-500">
+                    <h3 class="text-xl font-bold mb-3 flex items-center gap-2">
+                        <span>⚖️</span> Judging Criteria
+                    </h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li>• <strong>Creativity & Originality (40%):</strong> Unique concepts and innovative approaches</li>
+                        <li>• <strong>Technical Excellence (30%):</strong> Execution quality and attention to detail</li>
+                        <li>• <strong>Concept Clarity (20%):</strong> Clear communication of ideas and purpose</li>
+                        <li>• <strong>Impact & Relevance (10%):</strong> Potential real-world application and appeal</li>
+                    </ul>
+                </div>
+
+                <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg p-6 border-l-4 border-green-500">
+                    <h3 class="text-xl font-bold mb-3 flex items-center gap-2">
+                        <span>🏆</span> Prizes & Recognition
+                    </h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li>• Cash prizes ranging from R2,500 to R5,000 per category</li>
+                        <li>• Featured placement in our digital gallery</li>
+                        <li>• Certificate of achievement for all winners</li>
+                        <li>• Potential collaboration opportunities with industry partners</li>
+                    </ul>
+                </div>
+
+                <div class="bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg p-6 border-l-4 border-purple-500">
+                    <h3 class="text-xl font-bold mb-3 flex items-center gap-2">
+                        <span>📅</span> Important Deadlines
+                    </h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li>• Submission deadline: February 15, 2025 at 11:59 PM</li>
+                        <li>• Judging period: February 16-28, 2025</li>
+                        <li>• Winners announced: March 1, 2025</li>
+                        <li>• Prize distribution: Within 14 days of announcement</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-gradient-to-br from-pink-50 to-purple-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="section-title gradient-text">Featured Gallery</h2>
+            
+            <div class="flex justify-center gap-4 mb-8">
+                <button class="btn btn-primary" onclick="filterGallery('all')">All</button>
+                <button class="btn btn-secondary" onclick="filterGallery('foxed')">🦊 Foxed</button>
+                <button class="btn btn-secondary" onclick="filterGallery('olympic')">🍉 Olympic</button>
+                <button class="btn btn-secondary" onclick="filterGallery('brand')">🎨 Brand</button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Gallery Item 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover-lift">
+                    <div class="h-64 bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center text-white text-6xl">
+                        🦊
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">Neon Fox Streetwear</h3>
+                        <p class="text-sm text-gray-600 mb-3">By Alex Chen</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3 text-sm text-gray-500">
+                                <span>❤️ 234</span>
+                                <span>👁️ 1,205</span>
+                            </div>
+                            <span class="badge bg-orange-100 text-orange-800">4.8★</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover-lift">
+                    <div class="h-64 bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center text-white text-6xl">
+                        🍉
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">Dynamic Sprint Collection</h3>
+                        <p class="text-sm text-gray-600 mb-3">By Maria Rodriguez</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3 text-sm text-gray-500">
+                                <span>❤️ 189</span>
+                                <span>👁️ 987</span>
+                            </div>
+                            <span class="badge bg-green-100 text-green-800">4.6★</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover-lift">
+                    <div class="h-64 bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center text-white text-6xl">
+                        🎨
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">Urban Identity Project</h3>
+                        <p class="text-sm text-gray-600 mb-3">By Jamie Lee</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3 text-sm text-gray-500">
+                                <span>❤️ 312</span>
+                                <span>👁️ 1,543</span>
+                            </div>
+                            <span class="badge bg-purple-100 text-purple-800">4.9★</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="section-title gradient-text">Frequently Asked Questions</h2>
+
+            <div class="space-y-4">
+                <div class="bg-gray-50 rounded-lg p-6 cursor-pointer hover:bg-gray-100 transition" onclick="toggleFAQ(1)">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold text-lg">How do I submit my work?</h3>
+                        <i class="fas fa-chevron-down" id="faq-icon-1"></i>
+                    </div>
+                    <div id="faq-content-1" class="hidden mt-4 text-gray-700">
+                        Navigate to the Submissions page, select your competition category, upload your files, 
+                        fill in the required information, and click Submit. You'll receive a confirmation email 
+                        once your submission is processed.
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-6 cursor-pointer hover: bg-gray-100 transition" onclick="toggleFAQ(2)">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold text-lg">Can I submit to multiple competitions?</h3>
+                        <i class="fas fa-chevron-down" id="faq-icon-2"></i>
+                    </div>
+                    <div id="faq-content-2" class="hidden mt-4 text-gray-700">
+                        Yes! Your subscription tier determines how many competitions you can enter.  Starter members 
+                        can submit to 2 competitions, while Professional and Enterprise members have unlimited access.
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-6 cursor-pointer hover:bg-gray-100 transition" onclick="toggleFAQ(3)">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold text-lg">What file formats are accepted?</h3>
+                        <i class="fas fa-chevron-down" id="faq-icon-3"></i>
+                    </div>
+                    <div id="faq-content-3" class="hidden mt-4 text-gray-700">
+                        We accept PNG, JPG, PDF, AI, PSD, SVG, and other common design file formats. 
+                        Maximum file size is 50MB per submission.  For video submissions, MP4 and MOV formats are supported.
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-6 cursor-pointer hover:bg-gray-100 transition" onclick="toggleFAQ(4)">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold text-lg">How are winners selected?</h3>
+                        <i class="fas fa-chevron-down" id="faq-icon-4"></i>
+                    </div>
+                    <div id="faq-content-4" class="hidden mt-4 text-gray-700">
+                        Winners are selected by our panel of industry experts based on creativity (40%), 
+                        technical excellence (30%), concept clarity (20%), and impact (10%). 
+                        The judging process is blind to ensure fairness.
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-6 cursor-pointer hover:bg-gray-100 transition" onclick="toggleFAQ(5)">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold text-lg">What rights do I retain over my work?</h3>
+                        <i class="fas fa-chevron-down" id="faq-icon-5"></i>
+                    </div>
+                    <div id="faq-content-5" class="hidden mt-4 text-gray-700">
+                        You retain full ownership and copyright of your submissions. By entering, you grant us 
+                        permission to display your work in our gallery and promotional materials with proper attribution.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banimal Footer -->
+    <footer class="footer" id="footer">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md: grid-cols-4 gap-8 mb-12">
+                <!-- Brand Column -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <span class="text-2xl font-bold">Fruitful™</span>
+                        <span class="text-gray-400">|</span>
+                        <span class="text-2xl font-bold">Banimal</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Revolutionary competition platform fostering creativity and innovation across multiple design disciplines.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover: text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Competition Column -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Competition</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#competition">Categories</a></li>
+                        <li><a href="#rules">Rules</a></li>
+                        <li><a href="#submissions">Submissions</a></li>
+                        <li><a href="#gallery">Winners</a></li>
+                    </ul>
+                </div>
+
+                <!-- Platform Column -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Platform</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#products">FAA.ZONE</a></li>
+                        <li><a href="#">API Access</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+
+                <!-- About Column -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">About</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    &copy; 2025 Fruitful™ | Banimal.  All rights reserved.
+                </p>
+                <div class="flex space-x-6 text-sm text-gray-400">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e. preventDefault();
+                const target = document.querySelector(this. getAttribute('href'));
+                if (target) {
+                    target. scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    const menu = document.getElementById('mobileMenu');
+                    menu.classList. remove('active');
+                }
+            });
+        });
+
+        // FAQ Toggle
+        function toggleFAQ(id) {
+            const content = document.getElementById(`faq-content-${id}`);
+            const icon = document. getElementById(`faq-icon-${id}`);
+            
+            if (content.classList.contains('hidden')) {
+                content.classList. remove('hidden');
+                icon. classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            } else {
+                content.classList.add('hidden');
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            }
+        }
+
+        // Gallery Filter (placeholder function)
+        function filterGallery(category) {
+            console.log('Filtering gallery by:', category);
+            // Add your gallery filtering logic here
+        }
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries. forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target. style.opacity = '1';
+                    entry.target.style. transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.competition-card, .stat-card, .pricing-card').forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
